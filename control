@@ -1,0 +1,9 @@
+Package: com.twickd.ethan-whited.musicqueuebegone
+Name: MusicQueueBeGone
+Depends: mobilesubstrate
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Doesn't that annoying popup in Apple Music get in the way?
+Maintainer: Ethan Whited
+Author: Ethan Whited
+Section: Tweaks
