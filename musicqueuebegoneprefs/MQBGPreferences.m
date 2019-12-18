@@ -130,9 +130,10 @@
 - (void)killMusic {
 
     AudioServicesPlaySystemSound(1521);
+    AudioServicesPlaySystemSound(1053);
 
     pid_t pid;
-    const char* args[] = {"killall", "Music", NULL};
+    const char* args[] = {"killall", "Music", "MusicApplication", NULL};
     posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
 
 }
