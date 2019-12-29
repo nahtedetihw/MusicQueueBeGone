@@ -1,3 +1,6 @@
+![download](https://i.ibb.co/DzbhWcq/banner.png)
+
+
 # MusicQueueBeGone
 ### Don't you just hate that annoying popup when you select "Play Next" in Apple Music?
 * Get rid of the queue menu and add a slight vibration to let you know your song has been added to the queue, but without annoying you by taking up your entire screen!
