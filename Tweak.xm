@@ -11,14 +11,10 @@ NSInteger ringStyle;
 - (void)viewDidLoad {
 
     if (enabled) {
+
+    } else {
     
-    //Do Nothing
-    
-    }
-    
-    else {
-    
-    return %orig;
+        %orig;
     
     }
     
@@ -66,12 +62,9 @@ NSInteger ringStyle;
     
     
     }
-    }
+}
     
-
 %end
-
-
 
 //iOS 13 Support
 %hook MusicQueueBeGone
@@ -82,11 +75,9 @@ NSInteger ringStyle;
     
     //Do Nothing
     
-    }
+    } else {
     
-    else {
-    
-    return %orig;
+        %orig;
     
     }
     
@@ -132,9 +123,9 @@ NSInteger ringStyle;
         default:
         break;
     }
-    }
     
-
+}
+    
 %end
 
 
