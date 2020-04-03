@@ -32,9 +32,6 @@ NSInteger ringStyle;
             AudioServicesPlaySystemSound(1521);
             break;
 
-            case 3:
-            break;
-
             default:
             break;
 
@@ -115,9 +112,6 @@ NSInteger ringStyle;
 
         case 2:
         AudioServicesPlaySystemSound(1053);
-        break;
-
-        case 3:
         break;
 
         default:
