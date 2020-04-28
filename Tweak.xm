@@ -5,6 +5,41 @@ HBPreferences *preferences;
 NSInteger feedbackStyle;
 NSInteger ringStyle;
 
+static void feedbackcall() {
+
+    UIImpactFeedbackGenerator * playHapticFeedback = [[UIImpactFeedbackGenerator alloc] initWithStyle:(int)feedbackStyle];
+    
+    [playHapticFeedback prepare];
+    
+    [playHapticFeedback impactOccurred];
+
+}
+
+void vibration() {
+    
+    switch (feedbackStyle) {
+    
+            case 0:
+            hapticStyle = UIImpactFeedbackStyleLight;
+            break;
+
+            case 1:
+            hapticStyle = UIImpactFeedbackStyleMedium;
+            break;
+
+            case 2:
+            hapticStyle = UIImpactFeedbackStyleHeavy;
+            break;
+            
+            case 3:
+            break;
+
+            default:
+            break;
+    
+    }
+    
+}
 
 %hook _TtC5Music31ContextActionsHUDViewController
 
@@ -18,7 +53,9 @@ NSInteger ringStyle;
     
     }
     
-        switch (feedbackStyle) {
+    vibration();
+    
+    /* switch (feedbackStyle) {
 
             case 0:
             AudioServicesPlaySystemSound(1519);
@@ -35,7 +72,7 @@ NSInteger ringStyle;
             default:
             break;
 
-    }
+    } */
     
     switch (ringStyle) {
 
@@ -78,7 +115,9 @@ NSInteger ringStyle;
     
     }
     
-        switch (feedbackStyle) {
+    vibration();
+    
+    /* switch (feedbackStyle) {
 
             case 0:
             AudioServicesPlaySystemSound(1519);
@@ -98,7 +137,7 @@ NSInteger ringStyle;
             default:
             break;
 
-    }
+    } */
     
     switch (ringStyle) {
 
