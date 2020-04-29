@@ -1,4 +1,4 @@
-![download](https://i.ibb.co/DzbhWcq/banner.png)
+![download](https://i.ibb.co/JpQ9cFw/banner.png)
 
 
 # MusicQueueBeGone
