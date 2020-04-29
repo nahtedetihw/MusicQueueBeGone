@@ -83,12 +83,14 @@
 				<string>1</string>
 				<string>2</string>
 				<string>3</string>
+				<string>4</string>
 			</array>
 			<key>validTitles</key>
 			<array>
-				<string>Choo</string>
-				<string>Beep</string>
-				<string>Burp</string>
+				<string>Icon</string>
+				<string>Keyboard</string>
+				<string>Large</string>
+				<string>Small</string>
 				<string>None</string>
 			</array>
 			<key>PostNotification</key>
@@ -115,6 +117,22 @@
 			<string>MTAC</string>
 			<key>user</key>
 			<string>mtac8</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>HBLinkTableCell</string>
+			<key>label</key>
+			<string>Check out DopeConvos</string>
+			<key>subtitle</key>
+			<string>Available on Twickd</string>
+			<key>url</key>
+			<string>https://repo.twickd.com/package/com.twickd.ethan-whited.dopeconvos</string>
 		</dict>
 		<dict>
 			<key>cell</key>
