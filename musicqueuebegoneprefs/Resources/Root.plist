@@ -38,7 +38,7 @@
 			<key>cell</key>
 			<string>PSSegmentCell</string>
 			<key>default</key>
-			<string>1</string>
+			<string>3</string>
 			<key>defaults</key>
 			<string>com.twickd.ethan-whited.musicqueuebegone</string>
 			<key>key</key>
@@ -52,10 +52,10 @@
 			</array>
 			<key>validTitles</key>
 			<array>
-				<string>LIGHT</string>
-				<string>HARD</string>
-				<string>RAPID</string>
-				<string>NONE</string>
+				<string>Light</string>
+				<string>Medium</string>
+				<string>Heavy</string>
+				<string>None</string>
 			</array>
 			<key>alignment</key>
 			<string>1</string>
@@ -86,10 +86,10 @@
 			</array>
 			<key>validTitles</key>
 			<array>
-				<string>CHOO</string>
-				<string>BEEP</string>
-				<string>BURP</string>
-				<string>NONE</string>
+				<string>Choo</string>
+				<string>Beep</string>
+				<string>Burp</string>
+				<string>None</string>
 			</array>
 			<key>PostNotification</key>
 			<string>com.twickd.ethan-whited.musicqueuebegone</string>
@@ -148,7 +148,7 @@
 			<key>footerAlignment</key>
 			<string>1</string>
 			<key>footerText</key>
-			<string>MusicQueueBeGone 1.3</string>
+			<string>MusicQueueBeGone 1.4</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -156,7 +156,7 @@
 			<key>footerAlignment</key>
 			<string>1</string>
 			<key>footerText</key>
-			<string>2019 © nahtedetihw</string>
+			<string>2020 © nahtedetihw</string>
 		</dict>
 	</array>
 	<key>title</key>
