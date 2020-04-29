@@ -130,7 +130,6 @@
 - (void)killMusic {
 
     AudioServicesPlaySystemSound(1521);
-    AudioServicesPlaySystemSound(1053);
 
     pid_t pid;
     const char* args[] = {"killall", "Music", "MusicApplication", NULL};
@@ -153,6 +152,12 @@
 - (UIColor *)tableViewCellSeparatorColor {
 
     return [UIColor clearColor];
+
+}
+
+- (void)dopeConvos:(id)sender {
+
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://repo.twickd.com/package/com.twickd.ethan-whited.dopeconvos"]];
 
 }
 
