@@ -3,101 +3,97 @@
 BOOL enabled;
 HBPreferences *preferences;
 NSInteger feedbackStyle;
+NSInteger notifeedbackStyle;
 NSInteger ringStyle;
 
 static void feedbackcall() {
-
-    UIImpactFeedbackGenerator * playHapticFeedback = [[UIImpactFeedbackGenerator alloc] initWithStyle:(int)feedbackStyle];
-    
-    [playHapticFeedback prepare];
-    
-    [playHapticFeedback impactOccurred];
-
+UIImpactFeedbackGenerator * feedback = [[UIImpactFeedbackGenerator alloc] initWithStyle:(int)feedbackStyle];
+[feedback prepare];
+[feedback impactOccurred];
 }
 
-void vibration() {
+%hook _UINotificationFeedbackGeneratorConfiguration
+
+-(BOOL)defaultEnabled {
+
+    if (enabled) {
     
-    switch (feedbackStyle) {
-    
-            case 0:
-            hapticStyle = UIImpactFeedbackStyleLight;
-            break;
-
-            case 1:
-            hapticStyle = UIImpactFeedbackStyleMedium;
-            break;
-
-            case 2:
-            hapticStyle = UIImpactFeedbackStyleHeavy;
-            break;
-            
-            case 3:
-            break;
-
-            default:
-            break;
+    return NO;
     
     }
     
+    return %orig;
+    
 }
+
+%end
 
 %hook _TtC5Music31ContextActionsHUDViewController
 
 - (void)viewDidLoad {
 
     if (enabled) {
-
-    } else {
     
-        %orig;
+    //Do Nothing
     
     }
     
-    vibration();
+    else {
     
-    /* switch (feedbackStyle) {
-
-            case 0:
-            AudioServicesPlaySystemSound(1519);
-            break;
-
-            case 1:
-            AudioServicesPlaySystemSound(1520);
-            break;
-
-            case 2:
-            AudioServicesPlaySystemSound(1521);
-            break;
-
-            default:
-            break;
-
-    } */
-    
-    switch (ringStyle) {
-
-        case 0:
-        AudioServicesPlaySystemSound(1051);
-        break;
-
-        case 1:
-        AudioServicesPlaySystemSound(1052);
-        break;
-
-        case 2:
-        AudioServicesPlaySystemSound(1053);
-        break;
-
-        case 3:
-        break;
-
-        default:
-        break;
-    
+    %orig;
     
     }
+        
+            switch (feedbackStyle) {
+
+                case 0:
+                feedbackStyle = UIImpactFeedbackStyleLight;
+                feedbackcall();
+                break;
+
+                case 1:
+                feedbackStyle = UIImpactFeedbackStyleMedium;
+                feedbackcall();
+                break;
+
+                case 2:
+                feedbackStyle = UIImpactFeedbackStyleHeavy;
+                feedbackcall();
+                break;
+                
+                case 3:
+                break;
+
+                default:
+                break;
+
+                }
+    
+            switch (ringStyle) {
+
+                case 0:
+                AudioServicesPlaySystemSound(1051);
+                break;
+
+                case 1:
+                AudioServicesPlaySystemSound(1052);
+                break;
+
+                case 2:
+                AudioServicesPlaySystemSound(1053);
+                break;
+
+                case 3:
+                break;
+
+                default:
+                break;
+    
+    
+            }
+        
 }
-    
+
 %end
 
 //iOS 13 Support
@@ -109,56 +105,63 @@ void vibration() {
     
     //Do Nothing
     
-    } else {
-    
-        %orig;
-    
     }
     
-    vibration();
+    else {
     
-    /* switch (feedbackStyle) {
-
-            case 0:
-            AudioServicesPlaySystemSound(1519);
-            break;
-
-            case 1:
-            AudioServicesPlaySystemSound(1520);
-            break;
-
-            case 2:
-            AudioServicesPlaySystemSound(1521);
-            break;
-
-            case 3:
-            break;
-
-            default:
-            break;
-
-    } */
+    %orig;
     
-    switch (ringStyle) {
-
-        case 0:
-        AudioServicesPlaySystemSound(1051);
-        break;
-
-        case 1:
-        AudioServicesPlaySystemSound(1052);
-        break;
-
-        case 2:
-        AudioServicesPlaySystemSound(1053);
-        break;
-
-        default:
-        break;
     }
+        
+            switch (feedbackStyle) {
+
+                case 0:
+                feedbackStyle = UIImpactFeedbackStyleLight;
+                feedbackcall();
+                break;
+
+                case 1:
+                feedbackStyle = UIImpactFeedbackStyleMedium;
+                feedbackcall();
+                break;
+
+                case 2:
+                feedbackStyle = UIImpactFeedbackStyleHeavy;
+                feedbackcall();
+                break;
+                
+                case 3:
+                break;
+
+                default:
+                break;
+
+                }
+    
+            switch (ringStyle) {
+
+                case 0:
+                AudioServicesPlaySystemSound(1051);
+                break;
+
+                case 1:
+                AudioServicesPlaySystemSound(1052);
+                break;
+
+                case 2:
+                AudioServicesPlaySystemSound(1053);
+                break;
+        
+                case 3:
+                break;
+
+                default:
+                break;
+                
+            }
     
 }
-    
+
 %end
 
 
