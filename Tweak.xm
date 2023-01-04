@@ -249,7 +249,7 @@ static void feedbackcall() {
 
 %ctor {
 
-    preferences = [[HBPreferences alloc] initWithIdentifier:@"com.twickd.ethan-whited.musicqueuebegone"];
+    preferences = [[HBPreferences alloc] initWithIdentifier:@"com.nahtedetihw.musicqueuebegoneprefs"];
     [preferences registerBool:&enabled default:YES forKey:@"enabled"];
     [preferences registerInteger:&feedbackStyle default:0 forKey:@"feedbackStyle"];
     [preferences registerInteger:&ringStyle default:0 forKey:@"ringStyle"];

@@ -1,4 +1,6 @@
-ARCHS = armv7 arm64 arm64e
+PREFIX=$(THEOS)/toolchain/Xcode.xctoolchain/usr/bin/
+SYSROOT=$(THEOS)/sdks/iphoneos14.2.sdk
+ARCHS = arm64 arm64e
 
 include $(THEOS)/makefiles/common.mk
 
@@ -6,8 +8,9 @@ BUNDLE_NAME = musicqueuebegoneprefs
 $(BUNDLE_NAME)_FILES = MQBGPreferences.m
 $(BUNDLE_NAME)_INSTALL_PATH = /Library/PreferenceBundles
 $(BUNDLE_NAME)_FRAMEWORKS = UIKit
-$(BUNDLE_NAME)_PRIVATE_FRAMEWORKS = Preferences
+$(BUNDLE_NAME)_PRIVATE_FRAMEWORKS = Preferences OnBoardingKit
 $(BUNDLE_NAME)_EXTRA_FRAMEWORKS = Cephei CepheiPrefs
+$(BUNDLE_NAME)_CFLAGS = -Wno-deprecated-declarations
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 

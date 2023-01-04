@@ -22,7 +22,7 @@
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
-			<string>com.twickd.ethan-whited.musicqueuebegone</string>
+			<string>com.nahtedetihw.musicqueuebegoneprefs</string>
 			<key>key</key>
 			<string>enabled</string>
 			<key>label</key>
@@ -40,7 +40,7 @@
 			<key>default</key>
 			<string>3</string>
 			<key>defaults</key>
-			<string>com.twickd.ethan-whited.musicqueuebegone</string>
+			<string>com.nahtedetihw.musicqueuebegoneprefs</string>
 			<key>key</key>
 			<string>feedbackStyle</string>
 			<key>validValues</key>
@@ -60,7 +60,7 @@
 			<key>alignment</key>
 			<string>1</string>
 			<key>PostNotification</key>
-			<string>com.twickd.ethan-whited.musicqueuebegone/ReloadPrefs</string>
+			<string>com.nahtedetihw.musicqueuebegoneprefs/ReloadPrefs</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -74,7 +74,7 @@
 			<key>default</key>
 			<string>1</string>
 			<key>defaults</key>
-			<string>com.twickd.ethan-whited.musicqueuebegone</string>
+			<string>com.nahtedetihw.musicqueuebegoneprefs</string>
 			<key>key</key>
 			<string>ringStyle</string>
 			<key>validValues</key>
@@ -94,29 +94,7 @@
 				<string>None</string>
 			</array>
 			<key>PostNotification</key>
-			<string>com.twickd.ethan-whited.musicqueuebegone</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>label</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>cellClass</key>
-			<string>HBTwitterCell</string>
-			<key>label</key>
-			<string>nahtedetihw</string>
-			<key>user</key>
-			<string>EthanWhited</string>
-		</dict>
-		<dict>
-			<key>cellClass</key>
-			<string>HBTwitterCell</string>
-			<key>label</key>
-			<string>MTAC</string>
-			<key>user</key>
-			<string>mtac8</string>
+			<string>com.nahtedetihw.musicqueuebegoneprefs/ReloadPrefs</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -128,11 +106,11 @@
 			<key>cellClass</key>
 			<string>HBLinkTableCell</string>
 			<key>label</key>
-			<string>Check out DopeConvos</string>
+			<string>Check out N95</string>
 			<key>subtitle</key>
-			<string>Available on Twickd</string>
+			<string>Available on Havoc</string>
 			<key>url</key>
-			<string>https://repo.twickd.com/package/com.twickd.ethan-whited.dopeconvos</string>
+			<string>https://havoc.app/package/n95</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -151,14 +129,12 @@
 			<string>https://github.com/nahtedetihw/musicqueuebegone</string>
 		</dict>
 		<dict>
-			<key>cellClass</key>
-			<string>HBLinkTableCell</string>
-			<key>label</key>
-			<string>Donate</string>
-			<key>subtitle</key>
-			<string>Buy me a coffee ☕️</string>
-			<key>url</key>
-			<string>https://paypal.me/nahtedetihw</string>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerAlignment</key>
+			<string>1</string>
+			<key>footerText</key>
+			<string>MusicQueueBeGone 1.6</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -166,15 +142,7 @@
 			<key>footerAlignment</key>
 			<string>1</string>
 			<key>footerText</key>
-			<string>MusicQueueBeGone 1.4</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>footerAlignment</key>
-			<string>1</string>
-			<key>footerText</key>
-			<string>2020 © nahtedetihw</string>
+			<string>2023 © ETHN</string>
 		</dict>
 	</array>
 	<key>title</key>

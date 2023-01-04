@@ -2,7 +2,6 @@
 	Filter = {
 		Bundles = (
 			"com.apple.Music",
-			"com.apple.MusicApplication",
 		);
 	};
 }

@@ -1,4 +1,4 @@
-![download](https://i.ibb.co/JpQ9cFw/banner.png)
+![download](https://i.ibb.co/DzbhWcq/banner.png)
 
 
 # MusicQueueBeGone
@@ -21,4 +21,3 @@
 * [**Reddit**](https://www.reddit.com/user/Nahtedetihw) - reach out if you have any questions.
 * [**Email**](mailto:ethanwhited2208@gmail.com) - open to any questions or concerns.
 * [**Donate**](https://paypal.me/nahtdetihw) - buy me a coffee if you like my work.
-* [**Repo**](https://repo.twickd.com) - Repo containing MusicQueueBeGone

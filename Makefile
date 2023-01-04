@@ -1,10 +1,10 @@
-THEOS_DEVICE_IP = 172.16.184.68
-
-ARCHS = armv7 arm64 arm64e
-
+TARGET := iphone:clang:latest:13.0
+INSTALL_TARGET_PROCESSES = Music
+ARCHS = arm64 arm64e
 DEBUG = 0
-
 FINALPACKAGE = 1
+PREFIX=$(THEOS)/toolchain/Xcode.xctoolchain/usr/bin/
+SYSROOT=$(THEOS)/sdks/iphoneos14.2.sdk
 
 include $(THEOS)/makefiles/common.mk
 
@@ -14,8 +14,5 @@ $(TWEAK_NAME)_EXTRA_FRAMEWORKS += Cephei
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
-after-install::
-	install.exec "killall -9 Music && killall -9 Preferences"
 SUBPROJECTS += musicqueuebegoneprefs
 include $(THEOS_MAKE_PATH)/aggregate.mk
-
