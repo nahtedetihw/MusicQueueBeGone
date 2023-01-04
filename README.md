@@ -4,7 +4,7 @@
 # MusicQueueBeGone
 ### Don't you just hate that annoying popup when you select "Play Next" in Apple Music?
 * Get rid of the queue menu and add a slight vibration to let you know your song has been added to the queue, but without annoying you by taking up your entire screen!
-* Works on iOS 10 to iOS 13!
+* Works on iOS 13 to iOS 16!
 * My very first tweak ever!
 * iPad users do not have a Haptic Engine, so we have added Sound Settings you can choose from!
 
