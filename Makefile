@@ -3,8 +3,8 @@ INSTALL_TARGET_PROCESSES = Music
 ARCHS = arm64 arm64e
 DEBUG = 0
 FINALPACKAGE = 1
-PREFIX=$(THEOS)/toolchain/Xcode.xctoolchain/usr/bin/
-SYSROOT=$(THEOS)/sdks/iphoneos14.2.sdk
+THEOS_PACKAGE_SCHEME=rootless
+SYSROOT=$(THEOS)/sdks/iphoneos14.5.sdk
 
 include $(THEOS)/makefiles/common.mk
 

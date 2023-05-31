@@ -1,5 +1,5 @@
-PREFIX=$(THEOS)/toolchain/Xcode.xctoolchain/usr/bin/
-SYSROOT=$(THEOS)/sdks/iphoneos14.2.sdk
+THEOS_PACKAGE_SCHEME=rootless
+SYSROOT=$(THEOS)/sdks/iphoneos14.5.sdk
 ARCHS = arm64 arm64e
 
 include $(THEOS)/makefiles/common.mk
@@ -10,7 +10,7 @@ $(BUNDLE_NAME)_INSTALL_PATH = /Library/PreferenceBundles
 $(BUNDLE_NAME)_FRAMEWORKS = UIKit
 $(BUNDLE_NAME)_PRIVATE_FRAMEWORKS = Preferences OnBoardingKit
 $(BUNDLE_NAME)_EXTRA_FRAMEWORKS = Cephei CepheiPrefs
-$(BUNDLE_NAME)_CFLAGS = -Wno-deprecated-declarations
+$(BUNDLE_NAME)_CFLAGS = -fobjc-arc -Wno-deprecated-declarations
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 

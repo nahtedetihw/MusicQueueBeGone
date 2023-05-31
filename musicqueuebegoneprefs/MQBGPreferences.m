@@ -2,13 +2,13 @@
 #import <AudioToolbox/AudioServices.h>
 #import <Cephei/HBPreferences.h>
 
+#define bundlePath ([[NSFileManager defaultManager] fileExistsAtPath:@"/Library/PreferenceBundles/musicqueuebegoneprefs.bundle/"] ? @"/Library/PreferenceBundles/musicqueuebegoneprefs.bundle/" : @"/var/jb/Library/PreferenceBundles/musicqueuebegoneprefs.bundle/")
+
 UIBarButtonItem *respringButtonItem;
 UIBarButtonItem *changelogButtonItem;
 UIBarButtonItem *twitterButtonItem;
 UIBarButtonItem *paypalButtonItem;
 UIViewController *popController;
-_UIBackdropView *backdropViewRespring;
-UIView *blackViewRespring;
 
 @interface UIColor (Private)
 + (id)tableCellGroupedBackgroundColor;
@@ -20,7 +20,7 @@ UIView *blackViewRespring;
 
 - (NSArray *)specifiers {
     if (!_specifiers) {
-        _specifiers = [[self loadSpecifiersFromPlistName:@"Root" target:self] retain];
+        _specifiers = [self loadSpecifiersFromPlistName:@"Root" target:self];
     }
 
     return _specifiers;
@@ -39,7 +39,7 @@ UIView *blackViewRespring;
         respringButton.layer.cornerRadius = respringButton.frame.size.height / 2;
         respringButton.layer.masksToBounds = YES;
         respringButton.backgroundColor = [UIColor tableCellGroupedBackgroundColor];
-        [respringButton setImage:[[UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/musicqueuebegoneprefs.bundle/CHECKMARK.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        [respringButton setImage:[[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@CHECKMARK.png", bundlePath]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
         [respringButton addTarget:self action:@selector(apply:) forControlEvents:UIControlEventTouchUpInside];
         respringButton.tintColor = [UIColor systemPinkColor];
         
@@ -50,7 +50,7 @@ UIView *blackViewRespring;
         changelogButton.layer.cornerRadius = changelogButton.frame.size.height / 2;
         changelogButton.layer.masksToBounds = YES;
         changelogButton.backgroundColor = [UIColor tableCellGroupedBackgroundColor];
-        [changelogButton setImage:[[UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/musicqueuebegoneprefs.bundle/CHANGELOG.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        [changelogButton setImage:[[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@CHANGELOG.png", bundlePath]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
         [changelogButton addTarget:self action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
         changelogButton.tintColor = [UIColor systemPinkColor];
         
@@ -61,7 +61,7 @@ UIView *blackViewRespring;
         twitterButton.layer.cornerRadius = twitterButton.frame.size.height / 2;
         twitterButton.layer.masksToBounds = YES;
         twitterButton.backgroundColor = [UIColor tableCellGroupedBackgroundColor];
-        [twitterButton setImage:[[UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/musicqueuebegoneprefs.bundle/TWITTER.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        [twitterButton setImage:[[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@TWITTER.png", bundlePath]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
         [twitterButton addTarget:self action:@selector(twitter:) forControlEvents:UIControlEventTouchUpInside];
         twitterButton.tintColor = [UIColor systemPinkColor];
         
@@ -72,7 +72,7 @@ UIView *blackViewRespring;
         paypalButton.layer.cornerRadius = paypalButton.frame.size.height / 2;
         paypalButton.layer.masksToBounds = YES;
         paypalButton.backgroundColor = [UIColor tableCellGroupedBackgroundColor];
-        [paypalButton setImage:[[UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/musicqueuebegoneprefs.bundle/PAYPAL.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        [paypalButton setImage:[[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@PAYPAL.png", bundlePath]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
         [paypalButton addTarget:self action:@selector(paypal:) forControlEvents:UIControlEventTouchUpInside];
         paypalButton.tintColor = [UIColor systemPinkColor];
         
@@ -92,7 +92,7 @@ UIView *blackViewRespring;
 
         self.iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
         self.iconView.contentMode = UIViewContentModeScaleAspectFit;
-        self.iconView.image = [UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/musicqueuebegoneprefs.bundle/headericon.png"];
+        self.iconView.image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@headericon.png", bundlePath]];
         self.iconView.translatesAutoresizingMaskIntoConstraints = NO;
         self.iconView.alpha = 0.0;
         [self.navigationItem.titleView addSubview:self.iconView];
@@ -125,6 +125,9 @@ UIView *blackViewRespring;
 
     CGRect frame = self.table.bounds;
     frame.origin.y = -frame.size.height;
+    
+    self.view.tintColor = [UIColor systemPinkColor];
+    [[UIApplication sharedApplication] keyWindow].tintColor = [UIColor systemPinkColor];
 
     self.navigationController.navigationController.navigationBar.barTintColor = [UIColor labelColor];
     [self.navigationController.navigationController.navigationBar setShadowImage: [UIImage new]];
@@ -142,27 +145,14 @@ UIView *blackViewRespring;
 
     [super viewDidLoad];
     
-    _UIBackdropViewSettings *settings = [_UIBackdropViewSettings settingsForStyle:2];
-
-    backdropViewRespring = [[_UIBackdropView alloc] initWithSettings:settings];
-    backdropViewRespring.layer.masksToBounds = YES;
-    backdropViewRespring.clipsToBounds = YES;
-    backdropViewRespring.frame = [UIScreen mainScreen].bounds;
-    backdropViewRespring.alpha = 0;
-    [[[UIApplication sharedApplication] keyWindow] addSubview:backdropViewRespring];
-    
-    blackViewRespring = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    blackViewRespring.layer.masksToBounds = YES;
-    blackViewRespring.clipsToBounds = YES;
-    blackViewRespring.alpha = 0;
-    blackViewRespring.backgroundColor = [UIColor blackColor];
-    [[[UIApplication sharedApplication] keyWindow] addSubview:blackViewRespring];
+    self.view.tintColor = [UIColor systemPinkColor];
+    [[UIApplication sharedApplication] keyWindow].tintColor = [UIColor systemPinkColor];
 
     self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.table.bounds.size.width,300)];
     
     self.artworkView = [[UIImageView alloc] initWithFrame:CGRectMake(self.headerView.frame.origin.x, self.headerView.frame.origin.y, self.headerView.frame.size.width, self.headerView.frame.size.height)];
     self.artworkView.contentMode = UIViewContentModeScaleAspectFit;
-    self.artworkView.image = [UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/musicqueuebegoneprefs.bundle/banner.png"];
+    self.artworkView.image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@banner.png", bundlePath]];
     self.artworkView.layer.masksToBounds = YES;
     
     [self.headerView insertSubview:self.artworkView atIndex:0];
@@ -240,7 +230,6 @@ UIView *blackViewRespring;
      
     UIPopoverPresentationController *popover = popController.popoverPresentationController;
     popover.delegate = self;
-    //[popover _setBackgroundBlurDisabled:YES];
     popover.permittedArrowDirections = UIPopoverArrowDirectionUp;
     popover.barButtonItem = respringButtonItem;
     popover.backgroundColor = [UIColor tableCellGroupedBackgroundColor];
@@ -255,9 +244,9 @@ UIView *blackViewRespring;
     
     AudioServicesPlaySystemSound(1519);
 
-    self.changelogController = [[OBWelcomeController alloc] initWithTitle:@"MusicQueueBeGone" detailText:@"1.7" icon:[UIImage imageWithContentsOfFile:@"/Library/PreferenceBundles/musicqueuebegoneprefs.bundle/changelogControllerIcon.png"]];
+    self.changelogController = [[OBWelcomeController alloc] initWithTitle:@"MusicQueueBeGone" detailText:@"1.7" icon:[UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@changelogControllerIcon.png", bundlePath]]];
 
-    [self.changelogController addBulletedListItemWithTitle:@"Support" description:@"Support for iOS 15-16." image:[UIImage systemImageNamed:@"1.circle.fill"]];
+    [self.changelogController addBulletedListItemWithTitle:@"Support" description:@"Support for iOS 16.5." image:[UIImage systemImageNamed:@"1.circle.fill"]];
 
     _UIBackdropViewSettings *settings = [_UIBackdropViewSettings settingsForStyle:2];
 
@@ -274,6 +263,9 @@ UIView *blackViewRespring;
     [backdropView.topAnchor constraintEqualToAnchor:self.changelogController.viewIfLoaded.topAnchor constant:0].active = YES;
 
     self.changelogController.viewIfLoaded.backgroundColor = [UIColor clearColor];
+    for (OBBulletedListItem *item in self.changelogController.bulletedList.items) {
+        item.imageView.tintColor = [UIColor systemPinkColor];
+    }
     self.changelogController.modalPresentationStyle = UIModalPresentationPageSheet;
     self.changelogController.modalInPresentation = NO;
     [self presentViewController:self.changelogController animated:YES completion:nil];
@@ -299,13 +291,13 @@ UIView *blackViewRespring;
 
     [popController dismissViewControllerAnimated:YES completion:nil];
 
-    [UIView animateWithDuration:1.0 animations:^{
-        backdropViewRespring.alpha = 1;
-    }];
-
     pid_t pid;
     const char* args[] = {"killall", "Music", NULL};
-    posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
+    if ([[NSFileManager defaultManager] fileExistsAtPath:@"/usr/bin/killall"]) {
+        posix_spawn(&pid, "usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
+    } else {
+        posix_spawn(&pid, "/var/jb/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
+    }
     
     [self launchMusic];
 }

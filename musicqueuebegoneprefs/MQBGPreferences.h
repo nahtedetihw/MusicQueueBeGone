@@ -20,7 +20,16 @@
 + (id)buttonWithType:(long long)arg1;
 @end
 
+@interface OBBulletedListItem : UIView
+@property (nonatomic,retain) UIImageView * imageView;
+@end
+
+@interface OBBulletedList : UIView
+@property (nonatomic,retain) NSMutableArray * items;
+@end
+
 @interface OBWelcomeController : UIViewController
+@property (nonatomic,retain) OBBulletedList * bulletedList;
 @property (nonatomic, retain) UIView *viewIfLoaded;
 @property (nonatomic, strong) UIColor *backgroundColor;
 - (OBButtonTray *)buttonTray;
